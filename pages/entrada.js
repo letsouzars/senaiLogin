@@ -18,16 +18,16 @@ export default function Acesso({ navigation }) {
     const [senha, setSenha] = useState('');
 
     useEffect(() => {
-        // Verifica se já existe um usuário cadastrado ao carregar a tela
+        
         verificarCadastro();
     }, []);
 
     const verificarCadastro = async () => {
         try {
-            // Recupera os dados do AsyncStorage
+          
             const userData = await AsyncStorage.getItem('userData');
             if (userData !== null) {
-                // Se existem dados cadastrados, navega para a próxima tela
+                
                 navigation.navigate('sucedido');
             }
         } catch (error) {
@@ -37,21 +37,21 @@ export default function Acesso({ navigation }) {
 
     const acessar = async () => {
         try {
-            // Recupera os dados do AsyncStorage
+            
             const userData = await AsyncStorage.getItem('userData');
             if (userData !== null) {
-                // Se existem dados cadastrados
+               s
                 const { email: storedEmail, senha: storedSenha } = JSON.parse(userData);
-                // Verifica se os dados inseridos pelo usuário coincidem com os dados cadastrados
+                
                 if (email === storedEmail && senha === storedSenha) {
-                    // Navega para a tela de sucesso se os dados coincidirem
+                 
                     navigation.navigate('sucedido');
                 } else {
-                    // Informa ao usuário que os dados estão incorretos
+                    
                     alert('Email ou senha incorretos.');
                 }
             } else {
-                // Informa ao usuário que não há cadastro
+               
                 alert('Não há cadastro.');
             }
         } catch (error) {

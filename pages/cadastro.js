@@ -20,18 +20,18 @@ export default function Cadastro({ navigation }) {
     const [telefone, setTelefone] = useState('');
 
     const cadastrar = async () => {
-        // Verifica se os campos não estão vazios
+        
         if (email && senha && cpf && telefone) {
             try {
-                // Armazena os dados utilizando AsyncStorage
+                
                 await AsyncStorage.setItem('userData', JSON.stringify({ email, senha, cpf, telefone }));
-                // Navega para a próxima tela após o cadastro
+               
                 navigation.navigate('sucedido');
             } catch (error) {
                 console.error('Erro ao armazenar dados:', error);
             }
         } else {
-            // Informa ao usuário que todos os campos são obrigatórios
+         
             alert('Todos os campos são obrigatórios.');
         }
     };
